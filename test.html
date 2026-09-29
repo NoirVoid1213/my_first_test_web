@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>胡欣玲的个人主页</title>
+    <style>
+        /* ================= 全局样式 ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html { width: 100%; height: 100%; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; overflow: hidden; }
+
+        /* ================= 页面一：封面页 ================= */
+        .page-cover {
+            width: 100%; height: 100%;
+            background-image: url('Firstpage.jpg'); 
+            background-size: cover; /* 让图片铺满整个屏幕，不拉伸变形 */
+            background-position: center; /* 图片居中显示 */
+            position: relative; 
+        }
+
+        /* 左下角文字（改为白色，才能在深蓝背景上看清） */
+        .cover-bottom-left {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            color: #ffffff; 
+            font-size: 20px;
+            line-height: 1.8;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* 文字发光阴影 */
+        }
+        .cover-bottom-left .line1 { font-size: 16px; opacity: 0.9; }
+        .cover-bottom-left .line2 { font-size: 24px; font-weight: bold; margin-top: 10px; }
+
+        /* 右上角文字 */
+        .cover-top-right {
+            position: absolute;
+            top: 60px;
+            right: 60px;
+            color: #ffffff; 
+            text-align: right;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+        }
+        .cover-top-right .welcome { font-size: 18px; font-weight: 300; letter-spacing: 1px; }
+        .cover-top-right .name { font-size: 36px; font-weight: bold; margin-top: 10px; }
+
+        /* 进入按钮（改为半透明风格，适配深色背景） */
+        .enter-btn {
+            position: absolute;
+            bottom: 80px;
+            right: 60px;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.15); /* 半透明背景 */
+            color: #ffffff;
+            border: 2px solid #ffffff; /* 白色边框 */
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px); /* 磨砂玻璃效果，显得很高级 */
+        }
+        .enter-btn:hover {
+            background: #ffffff;
+            color: #1f2937;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+        }
+
+        /* ================= 页面二：内容页 ================= */
+        .page-content {
+            width: 100%; height: 100%;
+            background-image: url('Secondpage.jpg'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: none; /* 初始隐藏 */
+            justify-content: center;
+            align-items: center;
+            gap: 60px; 
+            padding: 0 60px;
+        }
+
+        /* 左右两栏的共同样式 */
+        .content-left, .content-right {
+            background: rgba(255, 255, 255, 0.85); /* 半透明白色卡片，让文字在橙色背景上依然清晰 */
+            padding: 40px;
+            border-radius: 20px;
+            width: 45%;
+            max-width: 480px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            line-height: 2;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .content-left h2, .content-right h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #e67e22; /* 呼应你背景图的橙色 */
+            padding-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .content-right a {
+            color: #e67e22;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content-right a:hover { text-decoration: underline; }
+
+        /* 返回按钮（移到右上角，避免遮挡图片底部的人物） */
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: rgba(0,0,0,0.7); }
+    </style>
+</head>
+<body>
+
+    <!-- 页面一：封面 -->
+    <div class="page-cover" id="pageCover">
+        <div class="cover-bottom-left">
+            <div class="line1">人与人之间的联系就像电波</div>
+            <div class="line2">很高兴遇见你</div>
+        </div>
+        
+        <div class="cover-top-right">
+            <div class="welcome">Welcome to</div>
+            <div class="name">Huxinling's homepage</div>
+        </div>
+
+        <button class="enter-btn" onclick="goToContent()">进入第二页 →</button>
+    </div>
+
+    <!-- 页面二：内容 -->
+    <div class="page-content" id="pageContent">
+        <div class="content-left">
+            <h2>个人简介</h2>
+            <p>专业：数据科学与大数据技术（认知科学大数据）</p>
+            <p>年级：大一</p>
+            <p>生日：2008年4月19日</p>
+            <p>学校：上海外国语大学</p>
+            <p>地址：上海市文翔路1550号</p>
+            <p>邮箱：2188277223@qq.com</p>
+        </div>
+
+        <div class="content-right">
+            <h2>兴趣爱好</h2>
+            <p>打羽毛球</p>
+            <p>打乒乓球</p>
+            <p>品鉴小说</p>
+            <p>看电影</p>
+            <p>看动漫</p>
+            <p>GitHub网页：<a href="https://github.com/NoirVoid1213" target="_blank">点此访问我的GitHub</a></p>
+        </div>
+
+        <button class="back-btn" onclick="goToCover()">← 返回封面</button>
+    </div>
+
+    <script>
+        function goToContent() {
+            document.getElementById('pageCover').style.display = 'none';
+            document.getElementById('pageContent').style.display = 'flex';
+        }
+        function goToCover() {
+            document.getElementById('pageCover').style.display = 'block';
+            document.getElementById('pageContent').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
